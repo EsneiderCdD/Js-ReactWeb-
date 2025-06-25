@@ -1,0 +1,28 @@
+.explicacion {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.explicacion h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.explicacion h4 {
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.explicacion p {
+    color: #666;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.explicacion img {
+   height: 100%;
+    width: auto;
+    margin: 15px 0;
+    border-radius: 8px;
+}

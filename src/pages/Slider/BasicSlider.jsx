@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styles from './BasicSlider.module.css';
+import Explicacion from '../../components/Explicacion/Explicacion';
+import { contenidoExplicacion } from './data/basicSliderData'; // 👈 Importamos solo esto
 
 export default function BasicSlider() {
     const images = [
@@ -9,12 +11,13 @@ export default function BasicSlider() {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [mostrarExplicacion, setMostrarExplicacion] = useState(false);
 
     const goToNext = () => {
         if (currentIndex < images.length - 1) {
             setCurrentIndex(currentIndex + 1);
         } else {
-            setCurrentIndex(0); // Reinicia al inicio
+            setCurrentIndex(0);
         }
     };
 
@@ -22,7 +25,7 @@ export default function BasicSlider() {
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
         } else {
-            setCurrentIndex(images.length - 1); // Va a la última imagen
+            setCurrentIndex(images.length - 1);
         }
     };
 
@@ -32,7 +35,12 @@ export default function BasicSlider() {
             <div className={styles.controls}>
                 <button onClick={goToPrevious}>Anterior</button>
                 <button onClick={goToNext}>Siguiente</button>
+                <button onClick={() => setMostrarExplicacion(!mostrarExplicacion)}>
+                    {mostrarExplicacion ? 'Ocultar Explicación' : 'Mostrar Explicación'}
+                </button>
             </div>
+
+            {mostrarExplicacion && <Explicacion contenido={contenidoExplicacion} />}
         </div>
     );
 }
